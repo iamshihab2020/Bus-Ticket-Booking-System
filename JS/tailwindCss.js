@@ -12,7 +12,7 @@ tailwind.config = {
                 seatText: "rgba(3, 7, 18, 0.50)",
             },
             fontFamily: {
-                rele: '"Raleway", sans-serif',
+                rele: ' "Roboto", sans-serif;',
             },
         },
     },
