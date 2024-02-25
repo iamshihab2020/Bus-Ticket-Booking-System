@@ -33,6 +33,8 @@ const couponCheck = (total, selectedSeats) => {
 
     // Event listener for generating ticket
     const generateTicketClick = () => {
+        const tickBox = document.getElementById("tickBox");
+        tickBox.classList.remove('hidden')
         const from = document.querySelector("#from").value;
         const to = document.querySelector("#to").value;
         const time = document.querySelector("#time").value;
