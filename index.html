@@ -211,10 +211,8 @@
                         <div class="label">
                             <span class="label-text font-bold">From</span>
                         </div>
-                        <select class="select select-bordered">
+                        <select class="select select-bordered" id="from">
                             <option disabled selected>Pick one</option>
-                            <option>Khulna</option>
-                            <option>Dhaka</option>
                         </select>
                     </label>
 
@@ -223,10 +221,8 @@
                         <div class="label">
                             <span class="label-text font-bold">To</span>
                         </div>
-                        <select class="select select-bordered">
+                        <select class="select select-bordered" id="to">
                             <option disabled selected>Pick one</option>
-                            <option>Khulna</option>
-                            <option>Dhaka</option>
                         </select>
                     </label>
 
@@ -235,11 +231,8 @@
                         <div class="label">
                             <span class="label-text font-bold">Boarding Time</span>
                         </div>
-                        <select class="select select-bordered">
+                        <select class="select select-bordered" id="time">
                             <option disabled selected>Pick one</option>
-                            <option>8:00 PM</option>
-                            <option>10:00 PM</option>
-                            <option>11:00 PM</option>
                         </select>
                     </label>
 
@@ -248,11 +241,8 @@
                         <div class="label">
                             <span class="label-text font-bold">Boarding Point</span>
                         </div>
-                        <select class="select select-bordered">
+                        <select class="select select-bordered" id="boarding">
                             <option disabled selected>Pick one</option>
-                            <option>Jamuna Future Park</option>
-                            <option>Jatrabari</option>
-                            <option>Sayedabad</option>
                         </select>
                     </label>
 
@@ -261,11 +251,8 @@
                         <div class="label">
                             <span class="label-text font-bold">Dropping Point</span>
                         </div>
-                        <select class="select select-bordered">
+                        <select class="select select-bordered" id="drop-point">
                             <option disabled selected>Pick one</option>
-                            <option>Fultola</option>
-                            <option>Sonadanga</option>
-                            <option>Natun Rasta</option>
                         </select>
                     </label>
 
@@ -274,10 +261,8 @@
                         <div class="label">
                             <span class="label-text font-bold">Class</span>
                         </div>
-                        <select class="select select-bordered">
+                        <select class="select select-bordered" id="class">
                             <option disabled selected>Pick one</option>
-                            <option>AC</option>
-                            <option>Non AC</option>
                         </select>
                     </label>
                 </div>
@@ -293,7 +278,7 @@
                             <h2 class="text-left text-2xl font-semibold ">
                                 Select Your Seat 
                             </h2>
-                            <div class="hidden">
+                            <div class="hidden" id="seatCounts">
                                 <button
                                     class="flex items-center gap-1 p-2 lg:p-3 font-bold rounded-xl text-gr bg-btn1Bg">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
@@ -358,7 +343,7 @@
                     </div>
 
                     <!-- Non AC -->
-                    <div class="flex flex-col gap-10 mt-10 " id="non_ac">
+                    <div class="flex flex-col gap-10 mt-10 hidden" id="non_ac">
                         <!-- A -->
                         <div class="flex justify-between">
                             <div class="flex items-center justify-between gap-10">
@@ -766,6 +751,7 @@
 
     <script src="./JS/data.js"></script>
     <script src="./JS/selectTicket.js"></script>
+    <script src="./JS/showSeats.js"></script>
     <script src="./JS/initializeSeatSelection.js"></script>
     <!-- <script src="./JS/script.js"></script> -->
     <script src="./JS/addToInvoice.js"></script>
