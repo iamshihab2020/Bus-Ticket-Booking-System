@@ -3,6 +3,7 @@ const initializeSeatSelection = () => {
     const seatLeft = document.querySelector("#seatLeft");
     const submit = document.querySelector("#submit");
     let selectedSeats = [];
+
     seatButtons.forEach((btn) => {
         btn.addEventListener("click", (e) => {
             const seatNumber = e.target.innerHTML;
@@ -28,6 +29,8 @@ const initializeSeatSelection = () => {
             addToInvoice(selectedSeats)
         });
     });
+
+
 };
 
 document.addEventListener("DOMContentLoaded", initializeSeatSelection);

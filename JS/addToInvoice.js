@@ -24,5 +24,8 @@ const generateTotal = (selectedSeats) => {
     let total = selectedSeatsLength * 550;
     normalTotal.innerHTML = `BDT ${total}`
     grandTotal.innerHTML = `BDT ${total}`
-    couponCheck(total, selectedSeatsLength);
+    couponCheck(total, selectedSeats);
+    
 };
+
+
