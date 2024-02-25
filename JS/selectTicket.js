@@ -1,6 +1,7 @@
 // Function to add options to select element
 function addOptionsToSelect(selectId, options) {
     const selectElement = document.querySelector(selectId);
+    selectElement.innerHTML = ""; // Clear existing options
     options.forEach(option => {
         const optionElement = document.createElement("option");
         optionElement.textContent = option;
@@ -8,10 +9,10 @@ function addOptionsToSelect(selectId, options) {
     });
 }
 
-// Function to add options to the boarding select element based on the selected location
+// Function to add options to the boarding or dropping select element based on the selected location
 function addBoardDropPoints(location, selectId) {
-    const boardingSelect = document.querySelector(selectId);
-    // boardingSelect.innerHTML = ""; // Clear existing options
+    const selectElement = document.querySelector(selectId);
+    selectElement.innerHTML = ""; // Clear existing options
 
     if (location in data.boardingPoints) {
         addOptionsToSelect(selectId, data.boardingPoints[location]);
@@ -19,11 +20,13 @@ function addBoardDropPoints(location, selectId) {
         // If location not found in data, add a default option
         const defaultOption = document.createElement("option");
         defaultOption.textContent = "Select Boarding Point";
-        boardingSelect.appendChild(defaultOption);
+        selectElement.appendChild(defaultOption);
     }
 }
 
-// Add options to the "from" select element when the DOM content is loaded
+
+
+// Add options to the selects and set event listeners when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', () => {
     addOptionsToSelect("#from", data.locations);
     addOptionsToSelect("#to", data.locations);
@@ -31,14 +34,20 @@ document.addEventListener('DOMContentLoaded', () => {
     addOptionsToSelect("#class", data.classes);
 
     // Event listener for changing the "from" select
-    document.querySelector("#from").addEventListener("change", function() {
+    document.querySelector("#from").addEventListener("change", () => {
         const selectedLocation = this.value;
         addBoardDropPoints(selectedLocation, "#boarding");
     });
 
     // Event listener for changing the "to" select
-    document.querySelector("#to").addEventListener("change", function() {
+    document.querySelector("#to").addEventListener("change", () => {
         const selectedLocation = this.value;
         addBoardDropPoints(selectedLocation, "#drop-point");
+    });
+
+    // Event listener for generating ticket
+    document.querySelector(".generateTicket").addEventListener("click", () => {
+        ticketBox("#from", "#to", "#time", "#boarding", "#drop-point", "#class");
+        // alert("Ticket has been generated scroll down to download your ticket")
     });
 });
