@@ -30,6 +30,7 @@ function ticketBox(from, to, time, boarding, dropping, ticketClass, selectedSeat
     theClass.innerHTML = ticketClass;
     totalTk.innerHTML = theGrandTotal;
 
+    // add bus numbers
     function updateBusNumber(location) {
         const busNumberElement = document.querySelector("#busNumber");
         if (location in data.busNumbers) {
@@ -42,10 +43,9 @@ function ticketBox(from, to, time, boarding, dropping, ticketClass, selectedSeat
     }
     updateBusNumber(from)
 
+    //add seat to the ticket
     function seeAllSeats(selectedSeats) {
         seatListTicket.innerHTML = "";
-
-
         selectedSeats.forEach(seat => {
             const seatButton = document.createElement("button");
             seatButton.classList.add("seat-btn", "bg-gr", "text-[#fff]", "btn", "text-lg", "font-medium", "px-8");
@@ -55,13 +55,14 @@ function ticketBox(from, to, time, boarding, dropping, ticketClass, selectedSeat
     }
     seeAllSeats(selectedSeats);
 
+    // shows alert after fil up ticket form
     const alert = document.querySelector("#alert");
     alert.classList.remove('hidden');
 }
 
 
 
-        document.getElementById('download').addEventListener('click', function() {
-            var element = document.getElementById("yourTicket");
-            html2pdf().from(element).save();
-        });
+document.getElementById('download').addEventListener('click', function() {
+    var element = document.getElementById("yourTicket");
+    html2pdf().from(element).save();
+});
